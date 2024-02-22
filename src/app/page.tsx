@@ -98,7 +98,7 @@ export default function HomePage() {
 
 
 
-export function LetsTalk() {
+function LetsTalk() {
   return (
     <Dialog>
       <DialogTrigger asChild>
