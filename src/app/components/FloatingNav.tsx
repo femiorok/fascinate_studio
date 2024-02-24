@@ -4,8 +4,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 export const FloatingNav = () => {
-
-    const navItems = [
+  const navItems = [
     {
       name: "Home",
       link: "/",
@@ -13,6 +12,10 @@ export const FloatingNav = () => {
     {
       name: "About",
       link: "/about",
+    },
+    {
+      name: "Our Work",
+      link: "/work",
     },
   ];
 
@@ -29,7 +32,7 @@ export const FloatingNav = () => {
           key={`link=${idx}`}
           href={navItem.link}
           className={cn(
-            "relative text-neutral-50 items-center flex space-x-1 hover:text-neutral-300 "
+            "relative text-neutral-50 items-center flex space-x-1 hover:text-neutral-300 ",
           )}
         >
           {/* <span className="block sm:hidden">{navItem.icon}</span> */}
