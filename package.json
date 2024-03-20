@@ -25,7 +25,9 @@
     "next-video": "^0.14.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-intersection-observer": "^9.8.1",
     "react-player": "^2.14.1",
+    "react-scroll-parallax": "^3.4.5",
     "react-tsparticles": "^2.12.2",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7"

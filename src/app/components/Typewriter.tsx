@@ -1,13 +1,17 @@
 "use client";
-import { useEffect } from "react";
-import { motion, stagger, useAnimate } from "framer-motion";
-import { cn } from "@/lib/utils"; 
- 
-const words = `You need more than a creative agency. Our experience makes us uniquely qualified at crafting engaging, innovative content. Our clients agree:`;
- 
+import { useEffect, useRef } from "react";
+import { cn } from "@/lib/utils";
+import { useInView } from "react-intersection-observer";
+
+const words = `You need more than a creative agency.`;
+const words2 = `Our experience makes us uniquely qualified at crafting engaging, innovative content. Our clients agree:`;
+
 export function TextGeneration() {
   return (
-  <div className="max-w-[800px] mx-auto my-20 text-center"><TextGenerateEffect words={words} /></div>);
+    <div className="max-w-[800px] mx-auto my-20 text-4xl text-center">
+      <TextGenerateEffect words={words} />
+    </div>
+  );
 }
 
 const TextGenerateEffect = ({
@@ -17,42 +21,47 @@ const TextGenerateEffect = ({
   words: string;
   className?: string;
 }) => {
-  const [scope, animate] = useAnimate();
-  let wordsArray = words.split(" ");
+  const wordsArray = words.split(" ");
+  const spanRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   useEffect(() => {
-    animate(
-      "span",
-      {
-        opacity: 1,
-      },
-      {
-        duration: 2,
-        delay: stagger(0.2),
-      }
-    );
-  }, [scope.current]);
- 
+    if (inView) {
+      spanRefs.current.forEach((spanRef, index) => {
+        if (spanRef) {
+          setTimeout(() => {
+            spanRef.style.opacity = "1";
+          }, 200 * index);
+        }
+      });
+    }
+  }, [inView]);
+
   const renderWords = () => {
     return (
-      <motion.div ref={scope}>
+      <div ref={ref}>
         {wordsArray.map((word, idx) => {
           return (
-            <motion.span
+            <span
               key={word + idx}
-              className="text-white opacity-0"
+              ref={(el) => (spanRefs.current[idx] = el)}
+              className="text-white opacity-0 transition-opacity duration-500"
             >
               {word}{" "}
-            </motion.span>
+            </span>
           );
         })}
-      </motion.div>
+      </div>
     );
   };
- 
+
   return (
     <div className={cn("font-bold relative", className)}>
       <div className="mt-4">
-        <div className=" text-white text-2xl leading-snug tracking-wide">
+        <div className="text-white leading-snug tracking-wide">
           {renderWords()}
         </div>
       </div>

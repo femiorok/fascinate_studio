@@ -37,7 +37,7 @@ export function ElevateVisualsSection() {
   }, [api]);
 
   return (
-    <section className="bg-black text-white p-8 max-w-6xl mx-auto relative">
+    <section className="bg-black text-white p-8 max-w-[1600px] mx-auto relative">
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black/50 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <h1 className="text-5xl font-bold leading-tight mt-4 mb-8">
         Fascination is our north star. And we can guide you there.
