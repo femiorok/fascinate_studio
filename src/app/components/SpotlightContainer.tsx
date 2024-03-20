@@ -15,7 +15,6 @@ export function SpotlightContainer() {
           Spotlight <br /> is the new trend.
         </h1>
         <Grid />
-
       </div>
     </div>
   );

@@ -5,11 +5,10 @@ import React, { useRef } from "react";
 import { AnimatePresence, useMotionValueEvent, useScroll } from "framer-motion";
 import { motion } from "framer-motion";
 import Image from "next/image";
- 
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
-
 
 export const StickyScroll = ({
   content,
@@ -37,7 +36,7 @@ export const StickyScroll = ({
     });
   });
 
-//   background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+  //   background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
 
   return (
     <motion.div
@@ -75,7 +74,7 @@ export const StickyScroll = ({
           <div className="h-40" />
         </div>
       </div>
-        <AnimatePresence mode="wait"  >
+      <AnimatePresence mode="wait">
         <motion.div
           key={content[activeCard % content.length].imageUrl} // Change key to image URL for AnimatePresence
           initial={{ opacity: 0 }}
@@ -98,5 +97,3 @@ export const StickyScroll = ({
     </motion.div>
   );
 };
-
-
