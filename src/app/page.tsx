@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Starfield from "./components/Starfield";
 import { Suspense } from "react";
@@ -31,6 +33,24 @@ import { Label } from "@/components/ui/label";
 import { ElevateVisualsSection } from "@/components/elevate-visuals-section";
 import { ServicesTabsContainer } from "./components/ServicesTabsContainer";
 import { Parallax } from "./components/ParallaxImages/Parallax";
+import { BackgroundGradient } from "./components/BackgroundGradient";
+import Illustration from "@public/glow-bottom.svg";
+import LazyVideo from "./components/LazyVideo";
+import gif3 from "@public/homepage_gif3.webp";
+import mgm from "@public/mgm-screengrab.jpeg";
+import astro from "@public/astro2.jpeg";
+import videobg from "@public/div.hero-background.png";
+// import { MainVideo } from "./components/MainVideo";
+import dynamic from "next/dynamic";
+import { SparklesCore } from "./components/sparkles";
+import clsx from "clsx";
+import { StarsIllustration } from "./components/StarsStatic";
+import ModalVideo01 from "./components/ModalVideo";
+import Link from "next/link";
+
+const MainVideo = dynamic(() => import("./components/MainVideo"), {
+  ssr: false,
+});
 
 const content = [
   {
@@ -55,7 +75,7 @@ const content = [
     title: "Running out of content",
     description:
       "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
-    imageUrl: one.src,
+    imageUrl: gif3.src,
   },
 ];
 
@@ -80,7 +100,7 @@ export default function HomePage() {
       <div className="relative min-h-full">
         <Starfield />
       </div>
-      <h1 className="flex ml-[200px] h-[1.1em] z-50 mt-[20px] gap-4 items-center text-nowrap w-[1800px] text-[50px] flex-1 font-medium text-white">
+      <h1 className="flex ml-[200px] h-[1.1em] z-50 mt-[20px] gap-4 items-center text-nowrap w-full text-[50px] flex-1 font-medium text-white">
         Let your next
         <span className="relative h-[1.1em] mt-1 w-[1000px] overflow-hidden">
           <span className="absolute h-full w-full -translate-y-full animate-slide leading-none text-white">
@@ -97,53 +117,86 @@ export default function HomePage() {
       </h1>
       <section className=" text-white max-w-6xl mr-auto ml-80 relative gap-36 items-center flex">
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center  [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-        <h1 className="text-[160px] font-bold leading-tight mt-1 mb-8">
+        <h1 className="text-[160px] font-bold leading-tight mt-1 mb-8 bg-clip-text text-transparent bg-gradient-to-b from-gray-50 from-60% to-slate-800 to-90%">
           Fascinate
         </h1>
         <button className="relative inline-flex h-20 w-60 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50">
           <span className="absolute inset-[-1000%] animate-[spin_6s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
           <span className="inline-flex h-full w-full cursor-pointer text-3xl items-center justify-center rounded-full bg-gray-950 px-8 py-4 font-medium text-gray-50 backdrop-blur-3xl">
-            Click Me
+            Contact Us
           </span>
         </button>
       </section>
-      <Parallax />
-      <div className="relative ">
-        <SmallParticles
-          className="absolute inset-0 animate-fade-in"
-          quantity={100}
-        />
 
+      {/* <Parallax /> */}
+      <div className="relative w-full mt-40 max-h-screen aspect-video mx-auto grid *:row-span-full *:col-span-full">
         <TextGeneration />
-      </div>
-      <div className="h-[800px] max-w-[1600px] bg-[#63e]/5 border border-white/20 backdrop-blur-lg ml-[25%] mr-[12%]  rounded-lg relative shadow-[inset_-1px_5px_40px_0px_rgba(53,24,134,0.5)]">
-        <video
-          src={
-            "https://dtv9sxyhtfhqe3cm.public.blob.vercel-storage.com/documentary.mp4"
-          }
-          loop
-          autoPlay
-          muted
-          playsInline
-          className="w-[1000px] absolute right-1/2 top-28"
-        />
-        <div className="flex ml-auto justify-end max-w-[400px] text-[65px] h-full mr-24 items-center font-bold text-center animate-text-gradient duration-[3000ms] bg-gradient-to-l from-violet-300 via-violet-500 to-violet-200 bg-[200%_auto] bg-clip-text text-transparent">
-          The security first platform
+        <Image src={videobg} alt="" className="-z-10 -top-20 absolute" />
+        <div className="relative max-w-[1200px] aspect-video mx-auto -z-10">
+          <MainVideo />
+          {/* <video
+              src="https://dtv9sxyhtfhqe3cm.public.blob.vercel-storage.com/documentary.mp4"
+              loop
+              autoPlay
+              muted
+              playsInline
+              className="w-full h-full object-cover mt-32 top-10 rounded-2xl shadow-2xl blur-0"
+            /> */}
         </div>
-        {/* <div className="bg-indigo-500/50 h-[5500px] w-full absolute top-1/3 -right-1/3 rounded-full blur-2xl opacity-25"></div> */}
-        <div className="absolute opacity-10 inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] "></div>
+
+        <div
+          id="transparent-gradient"
+          className="absolute w-1/2 h-full inset-4 z-0 bg-gradient-to-r from-neutral-950 from-15% via-neutral-950/50 via-20% rounded-b-3xl blur-lg"
+        ></div>
+        <div
+          id="transparent-gradient"
+          className="absolute w-1/2 h-full right-0 z-0 bg-gradient-to-l from-neutral-950 from-15% via-neutral-950/70 via-20% rounded-b-3xl blur-lg"
+        ></div>
+        <div
+          id="transparent-gradient"
+          className="absolute w-full h-1/5 top-0 z-0 bg-gradient-to-b from-neutral-950 from-15% via-neutral-950/70 via-20% rounded-b-3xl blur-lg"
+        ></div>
       </div>
+
       <ServicesTabsContainer />
-      {/* <Marquee /> */}
+
+      <div
+        className={clsx(
+          "mask-radial-faded pointer-events-none relative h-[60rem] overflow-hidden",
+          // "[--color:#a78bfa] before:absolute before:inset-0 before:bg-radial-faded before:opacity-[0.8]",
+          "[--color:#7b5cf5] before:absolute before:inset-0 before:bg-radial-faded before:opacity-[0.4]",
+          "after:absolute after:top-1/2 after:-left-1/2 after:h-[142.8%] after:w-[200%] after:rounded-[50%] after:border-t after:border-[rgba(120,_119,_198,_0.4)] after:bg-neutral-950",
+        )}
+        id="_mask"
+      >
+        <SparklesCore
+          background="transparent"
+          minSize={0.4}
+          maxSize={0.8}
+          particleDensity={30}
+          className="w-full h-1/2"
+          particleColor="#FFFFFF"
+        />
+        <div className="relative z-50 before:">
+          <Marquee />
+        </div>
+      </div>
+      <p
+        className={
+          "font-bold relative text-white text-center text-6xl tracking-wide"
+        }
+      >
+        Case Studies
+      </p>
+
+      <StickyScroll content={content} />
 
       <div className="p-10 relative">
         <div className="absolute [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] "></div>
         {/* <StickyScroll content={content} /> */}
       </div>
-      <CaseStudies />
-      <div className="w-full flex">
-        <LetsTalk />
-      </div>
+
+      <div className="w-full flex">{/* <LetsTalk /> */}</div>
     </main>
   );
 }
@@ -154,7 +207,7 @@ function LetsTalk() {
       <DialogTrigger asChild>
         <button
           className="relative mx-auto my-20 inline-flex h-40 shadow-[0_0_2px_#E2CBFF,inset_0_0_2px_#E2CBFF,0_0_5px_#393BB2,0_0_15px_#393BB2,0_0_30px_#393BB2]
- w-96 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+          w-96 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
         >
           <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
           <span className="inline-flex h-full w-full cursor-pointer items-center justify-center text-6xl rounded-full bg-black px-3 py-1 font-medium text-white backdrop-blur-3xl">

@@ -2,14 +2,17 @@
 import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { useInView } from "react-intersection-observer";
+import { SparklesCore } from "./sparkles";
 
 const words = `You need more than a creative agency.`;
 const words2 = `Our experience makes us uniquely qualified at crafting engaging, innovative content. Our clients agree:`;
 
 export function TextGeneration() {
   return (
-    <div className="max-w-[800px] mx-auto my-20 text-4xl text-center">
+    <div className="mx-auto max-w-[1200px] z-50 text-4xl text-center mt-20 relative">
       <TextGenerateEffect words={words} />
+      {/* <div className="absolute w-full h-[500px] z-50">
+      </div> */}
     </div>
   );
 }
@@ -42,7 +45,10 @@ const TextGenerateEffect = ({
 
   const renderWords = () => {
     return (
-      <div ref={ref}>
+      <div
+        ref={ref}
+        className={"font-bold relative text-white text-6xl tracking-wide"}
+      >
         {wordsArray.map((word, idx) => {
           return (
             <span
@@ -59,12 +65,36 @@ const TextGenerateEffect = ({
   };
 
   return (
-    <div className={cn("font-bold relative", className)}>
-      <div className="mt-4">
-        <div className="text-white leading-snug tracking-wide">
-          {renderWords()}
-        </div>
+    <>
+      {renderWords()}
+      <div className="w-full h-16 mx-auto relative flex flex-col items-center justify-center overflow-hidden rounded-md">
+        {/* Gradients */}
+        <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+        <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+        <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-purple-500 to-transparent h-[5px] w-1/4 blur-sm" />
+        <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-purple-500 to-transparent h-px w-1/4" />
+
+        {/* Core component */}
+        {/* <SparklesCore
+          background="transparent"
+          minSize={0.4}
+          maxSize={0.8}
+          particleDensity={200}
+          className="w-full h-full"
+          particleColor="#FFFFFF"
+        /> */}
+
+        {/* Radial Gradient to prevent sharp edges */}
+        <div className="absolute inset-0 w-full h-full [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,black)]"></div>
       </div>
-    </div>
+    </>
   );
 };
+
+export function SparklesPreview() {
+  return (
+    <h1 className="md:text-7xl text-3xl lg:text-9xl font-bold text-center text-white relative z-20">
+      Aceternity
+    </h1>
+  );
+}

@@ -1,16 +1,39 @@
-import { OurWorkCarousel } from "@/components/our-work-carousel";
+import React from "react";
+import { FloatingNav } from "../components/FloatingNav";
 
-export default function Work() {
-  const vid =
-    "https://dtv9sxyhtfhqe3cm.public.blob.vercel-storage.com/documentary.mp4";
+export default function Page() {
   return (
     <>
-      <section className="flex relative flex-col gap-2 items-center justify-center h-screen">
-        <div className="h-screen w-full bg-gradient-to-tr from-transparent via-zinc-800/50 to-transparent absolute"></div>
-        <div className="max-w-4xl z-50">
-          <video src={vid} loop autoPlay muted playsInline className="w-full" />
+      <FloatingNav />
+      <section className="mt-20 grid grid-cols-2 gap-4 p-4 justify-center">
+        <div className="aspect-video min-w-[750px] mx-auto">
+          <iframe
+            src="https://drive.google.com/file/d/1JDcukLgi2xFE-qqSZh5bEqmjwnwLzzDT/preview"
+            allow="autoplay"
+            className="w-full h-full object-cover"
+          ></iframe>
         </div>
-        <OurWorkCarousel />
+        <div className="aspect-video min-w-[750px] mx-auto">
+          <iframe
+            src="https://drive.google.com/file/d/1tBJthwi2vPMRYCCLaKwXrqH1TJ6R_eB9/preview"
+            allow="autoplay"
+            className="w-full h-full object-cover"
+          ></iframe>
+        </div>
+        <div className="aspect-video min-w-[750px] mx-auto">
+          <iframe
+            src="https://drive.google.com/file/d/1lrtBhLieBSLVhq39gJbKCML0lEN0yCMM/preview"
+            allow="autoplay"
+            className="w-full h-full object-cover"
+          ></iframe>
+        </div>
+        <div className="aspect-video min-w-[750px] mx-auto">
+          <iframe
+            src="https://drive.google.com/file/d/1IeA6NVp89Aiz7n6BORsaKgHKwPI4BY_1/preview"
+            allow="autoplay"
+            className="w-full h-full object-cover"
+          ></iframe>
+        </div>
       </section>
     </>
   );

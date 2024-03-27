@@ -16,7 +16,7 @@ export function ServicesTabsContainer() {
       content: (
         <>
           <div className="relative flex justify-center overflow-hidden">
-            <div className="flex bg-[#63e] shadow-[inset_5px_120px_40px_5px_rgba(53,24,134,0.6)] py-5 aspect-[2/1] w-full flex-col items-center rounded-xl border border-[#ad90fc]/40 px-8 text-center [background:padding-box_var(--bg-color),border-box_var(--border-color)]">
+            <div className="flex bg-[#63e] shadow-[inset_5px_120px_40px_5px_rgba(53,24,134,0.8)] py-5 aspect-[2/1] w-full flex-col items-center rounded-xl border border-[#ad90fc]/40 px-8 text-center [background:padding-box_var(--bg-color),border-box_var(--border-color)]">
               <p className="text-3xl font-extrabold text-white">
                 Commercial content aligned with your brand identity{" "}
               </p>
@@ -33,7 +33,7 @@ export function ServicesTabsContainer() {
       content: (
         <>
           <div className="relative flex justify-center overflow-hidden">
-            <div className="flex bg-[#63e] shadow-[inset_5px_120px_40px_5px_rgba(53,24,134,0.6)] aspect-[2/1] py-5  w-full flex-col items-center rounded-xl border border-[#ad90fc]/40 px-8 text-center [background:padding-box_var(--bg-color),border-box_var(--border-color)]">
+            <div className="flex bg-[#63e] shadow-[inset_5px_120px_40px_5px_rgba(53,24,134,0.8)] aspect-[2/1] py-5  w-full flex-col items-center rounded-xl border border-[#ad90fc]/40 px-8 text-center [background:padding-box_var(--bg-color),border-box_var(--border-color)]">
               <p className="text-3xl font-extrabold text-white">
                 Broadcast-quality footage ready for any network{" "}
               </p>
@@ -50,7 +50,7 @@ export function ServicesTabsContainer() {
       content: (
         <>
           <div className="relative flex justify-center overflow-hidden">
-            <div className="flex bg-[#63e] shadow-[inset_5px_120px_40px_5px_rgba(53,24,134,0.6)]  py-5 aspect-[2/1] w-full flex-col items-center rounded-xl border border-[#ad90fc]/40 px-8 text-center [background:padding-box_var(--bg-color),border-box_var(--border-color)]">
+            <div className="flex bg-[#63e] shadow-[inset_5px_120px_40px_5px_rgba(53,24,134,0.8)]  py-5 aspect-[2/1] w-full flex-col items-center rounded-xl border border-[#ad90fc]/40 px-8 text-center [background:padding-box_var(--bg-color),border-box_var(--border-color)]">
               <p className="text-3xl font-extrabold text-white">
                 Impactful content for students and learners
               </p>
@@ -67,7 +67,7 @@ export function ServicesTabsContainer() {
       content: (
         <>
           <div className="relative flex justify-center overflow-hidden">
-            <div className="flex bg-[#63e] shadow-[inset_5px_120px_40px_5px_rgba(53,24,134,0.6)] py-5  aspect-[2/1] w-full flex-col items-center rounded-xl border border-[#ad90fc]/40 px-8 text-center [background:padding-box_var(--bg-color),border-box_var(--border-color)]">
+            <div className="flex bg-[#63e] shadow-[inset_5px_120px_40px_5px_rgba(53,24,134,0.8)] py-5  aspect-[2/1] w-full flex-col items-center rounded-xl border border-[#ad90fc]/40 px-8 text-center [background:padding-box_var(--bg-color),border-box_var(--border-color)]">
               <p className="text-3xl font-extrabold text-white">
                 Narrative-driven storytelling{" "}
               </p>
@@ -84,7 +84,7 @@ export function ServicesTabsContainer() {
       content: (
         <>
           <div className="relative flex justify-center overflow-hidden">
-            <div className="flex bg-[#63e] shadow-[inset_5px_120px_40px_5px_rgba(53,24,134,0.6)] py-5  aspect-[2/1] w-full flex-col items-center rounded-xl border border-[#ad90fc]/40 px-8 text-center [background:padding-box_var(--bg-color),border-box_var(--border-color)]">
+            <div className="flex bg-[#63e] shadow-[inset_5px_120px_40px_5px_rgba(53,24,134,0.8)] py-5  aspect-[2/1] w-full flex-col items-center rounded-xl border border-[#ad90fc]/40 px-8 text-center [background:padding-box_var(--bg-color),border-box_var(--border-color)]">
               <p className="text-3xl font-extrabold text-white">
                 Dynamic environments build with Unreal Engine 4{" "}
               </p>
@@ -98,9 +98,14 @@ export function ServicesTabsContainer() {
   ];
 
   return (
-    <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full  items-start justify-start my-40">
-      <ServicesTabs tabs={tabs} activeTabClassName="bg-white" />
-    </div>
+    <>
+      <h1 className="text-4xl font-bold text-white text-center mt-80 mb-10">
+        Our Services
+      </h1>
+      <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full  items-start justify-start mb-40">
+        <ServicesTabs tabs={tabs} activeTabClassName="bg-white" />
+      </div>
+    </>
   );
 }
 

@@ -37,6 +37,8 @@ export const Parallax = () => {
           />
         );
       })}
+      <div className="absolute top-0 left-0 w-full h-1/4 bg-gradient-to-b from-neutral-950 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-neutral-950 to-transparent z-40"></div>
     </div>
   );
 };

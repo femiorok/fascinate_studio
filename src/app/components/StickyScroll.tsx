@@ -40,13 +40,13 @@ export const StickyScroll = ({
 
   return (
     <motion.div
-      className="h-[30rem] overflow-y-auto flex justify-center gap-8 relative space-x-10 border border-zinc-500/50 rounded-md bg-gradient-to-tl from-black via-zinc-600/20 to-black"
+      className="h-[800px] overflow-y-auto flex justify-center gap-8 relative space-x-10 border border-zinc-500/50 rounded-md bg-gradient-to-tl from-black via-zinc-600/20 to-black scroll-snap-type: y mandatory"
       ref={ref}
     >
-      <div className="div relative flex items-start px-4">
+      <div className="div relative flex items-start px-4 scroll-snap-align: start">
         <div className="max-w-2xl relative">
           {content.map((item, index) => (
-            <div key={item.title + index} className="my-28">
+            <div key={item.title + index} className="my-28 scroll-ps-9">
               <motion.h2
                 initial={{
                   opacity: 0,
@@ -71,7 +71,7 @@ export const StickyScroll = ({
               </motion.p>
             </div>
           ))}
-          <div className="h-40" />
+          <div className="h-96" />
         </div>
       </div>
       <AnimatePresence mode="wait">

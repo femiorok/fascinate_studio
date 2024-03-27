@@ -4,10 +4,10 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import image1 from "@public/SCR-20240222-eahm.png";
-import image2 from "@public/SCR-20240222-eafd.png";
-import image3 from "@public/SCR-20240222-eadc.png";
-import image4 from "@public/SCR-20240222-eabb.png";
+import image1 from "@public/SCR-20240320-ladv.jpeg";
+import image2 from "@public/SCR-20240320-lajp.jpeg";
+import image3 from "@public/SCR-20240320-kzoe.jpeg";
+import image4 from "@public/SCR-20240320-lazb.jpeg";
 
 export function CaseStudies() {
   return (
@@ -159,8 +159,7 @@ const BlurImage = ({ card }: { card: Card }) => {
   return (
     <Image
       src={card.thumbnail}
-      height="500"
-      width="500"
+      fill
       onLoad={() => setLoaded(true)}
       className={cn(
         "object-cover object-top absolute inset-0 h-full w-full transition duration-200",

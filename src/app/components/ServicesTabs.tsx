@@ -112,7 +112,7 @@ export const FadeInDiv = ({
             scale: 1 - idx * 0.1,
             top: hovering ? idx * -75 : idx * -45,
             zIndex: -idx,
-            opacity: idx < 3 ? 1 - idx * 0.4 : 0,
+            opacity: idx < 4 ? 1 - idx * 0.2 : 0,
           }}
           animate={{
             y: isActive(tab) ? [0, 40, 0] : 0,

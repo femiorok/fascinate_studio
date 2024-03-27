@@ -12,7 +12,7 @@ const LOGOS = [
     src={chevy.src}
     key={chevy.src}
     alt="chevy"
-    className="w-full"
+    className="w-full bg-neutral-950"
     width={100}
     height={300}
   />,
@@ -20,7 +20,7 @@ const LOGOS = [
     src={intuit.src}
     key={intuit.src}
     alt="intuit"
-    className="w-full -mt-4"
+    className="w-full -mt-4 bg-neutral-950"
     width={100}
     height={300}
   />,
@@ -28,7 +28,7 @@ const LOGOS = [
     src={linkedin.src}
     key={linkedin.src}
     alt="linked"
-    className="w-full"
+    className="w-full bg-neutral-950"
     width={100}
     height={300}
   />,
@@ -36,7 +36,7 @@ const LOGOS = [
     src={natg.src}
     key={natg.src}
     alt="natg"
-    className="w-full"
+    className="w-full bg-neutral-950"
     width={100}
     height={300}
   />,
@@ -44,7 +44,7 @@ const LOGOS = [
     src={pbs.src}
     key={pbs.src}
     alt="pbs"
-    className="w-full"
+    className="w-full bg-neutral-950"
     width={100}
     height={300}
   />,
@@ -52,7 +52,7 @@ const LOGOS = [
     src={nsf.src}
     key={nsf.src}
     alt="nsf"
-    className="w-full"
+    className="w-full bg-neutral-950"
     width={100}
     height={300}
   />,
@@ -61,7 +61,7 @@ const a = "animate-infinite-slider";
 
 export const Marquee = () => {
   return (
-    <div className="relative m-auto my-4 h-[350px] w-[960px] overflow-hidden before:absolute before:left-0 before:top-0 before:z-[2] before:h-full before:w-[100px] before:bg-[linear-gradient(to_right,black_0%,rgba(0,0,0,0)_100%)] before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full after:w-[100px] after:-scale-x-100 after:bg-[linear-gradient(to_right,black_0%,rgba(0,0,0,0)_100%)] after:content-['']">
+    <div className="relative m-auto my-20 h-[350px] w-[960px] overflow-hidden before:absolute before:left-0 before:top-0 before:z-[2] before:h-full before:w-[100px] before:bg-[linear-gradient(to_right,#0a0a0a_0%,rgba(0,0,0,0)_100%)] before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full after:w-[100px] after:-scale-x-100 after:bg-[linear-gradient(to_right,#0a0a0a_0%,rgba(0,0,0,0)_100%)] after:content-['']">
       <div className="animate-infinite-slider flex gap-8 w-[calc(250px*10)]">
         {LOGOS.map((logo, index) => (
           <div
