@@ -107,6 +107,8 @@ export default function ModalVideo() {
                   url="https://dtv9sxyhtfhqe3cm.public.blob.vercel-storage.com/documentary.mp4"
                   width="100%"
                   height="100%"
+                  controls={true}
+                  playing={true}
                 />
               </Dialog.Panel>
             </div>
