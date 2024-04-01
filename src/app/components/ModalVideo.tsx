@@ -40,7 +40,7 @@ export default function ModalVideo() {
                 className="object-cover z-10"
                 fill
               />
-              <div className="absolute inset-0 h-[564px] z-5 w-full bg-gradient-to-b from-transparent from-40% to-neutral-950" />
+              <div className="absolute inset-0 h-[564px] z-50 w-full bg-gradient-to-b from-transparent from-40% to-neutral-950/70" />
             </div>
           </div>
         </div>
