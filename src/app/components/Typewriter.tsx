@@ -5,14 +5,22 @@ import { useInView } from "react-intersection-observer";
 import { SparklesCore } from "./sparkles";
 
 const words = `You need more than a creative agency.`;
-const words2 = `Our experience makes us uniquely qualified at crafting engaging, innovative content. Our clients agree:`;
+const words2 = `Case Studies`;
 
 export function TextGeneration() {
   return (
-    <div className="mx-auto max-w-[1200px] z-50 text-4xl text-center mt-20 relative">
+    <div className="mx-auto max-w-[1200px] z-50 text-4xl text-center relative">
       <TextGenerateEffect words={words} />
       {/* <div className="absolute w-full h-[500px] z-50">
       </div> */}
+    </div>
+  );
+}
+
+export function CaseStudiesText() {
+  return (
+    <div className="mx-auto max-w-[1200px] z-50 text-4xl text-center relative">
+      <TextGenerateEffect words={words2} />
     </div>
   );
 }

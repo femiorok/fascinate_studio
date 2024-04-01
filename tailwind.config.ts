@@ -72,7 +72,7 @@ const config = {
         "glow-lines":
           "linear-gradient(var(--direction),#9d9bf2 0.43%,#7877c6 14.11%,rgba(120,119,198,0) 62.95%)",
         "radial-faded":
-          "radial-gradient(circle at bottom center,var(--color),#a78bfa,transparent 70%)",
+          "radial-gradient(circle at bottom center,var(--color),#8B5CF6,transparent 70%)",
         "radial-faded-sm":
           "radial-gradient(circle at bottom center,var(--color),transparent 60%)",
         "glass-gradient":
@@ -98,6 +98,14 @@ const config = {
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "fade-in": {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
         },
         "fade-in-left": {
           "0%": {
@@ -174,6 +182,7 @@ const config = {
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
+        "fade-in": "fade-in 0.6s ease-in",
         "accordion-up": "accordion-up 0.2s ease-out",
         spotlight: "spotlight 2s ease .75s 1 forwards",
         ["infinite-slider"]: "infiniteSlider 20s linear infinite",

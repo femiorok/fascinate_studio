@@ -73,4 +73,19 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  react-player__preview {
+    @apply !h-[650px]
+  }
+
+  react-player__play-icon {
+    @apply hidden !important
+  }
 }
+
+@layer utilities {
+    .mask-radial-faded {
+    mask-image: radial-gradient(circle at center center, black, transparent 80%)
+  }
+}
+

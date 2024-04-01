@@ -46,7 +46,7 @@ export const StickyScroll = ({
       <div className="div relative flex items-start px-4 scroll-snap-align: start">
         <div className="max-w-2xl relative">
           {content.map((item, index) => (
-            <div key={item.title + index} className="my-28 scroll-ps-9">
+            <div key={item.title + index} className="my-36 scroll-ps-9">
               <motion.h2
                 initial={{
                   opacity: 0,
@@ -83,7 +83,7 @@ export const StickyScroll = ({
           transition={{
             opacity: { duration: 0.3, ease: "easeInOut" },
           }}
-          className="hidden lg:block h-80 w-96 rounded-md sticky top-16 overflow-hidden"
+          className="hidden lg:block h-[500px] w-[500px] rounded-md sticky top-16 overflow-hidden"
         >
           <Image
             src={content[activeCard % content.length].imageUrl}

@@ -9,7 +9,7 @@ import { FloatingNav } from "./components/FloatingNav";
 import { SpotlightContainer } from "./components/SpotlightContainer";
 import { Grid } from "./components/Grid";
 import { Marquee } from "./components/Marquee";
-import { TextGeneration } from "./components/Typewriter";
+import { CaseStudiesText, TextGeneration } from "./components/Typewriter";
 import { StickyScroll } from "./components/StickyScroll";
 import one from "@public/C1275.00_00_12_27.Still057.jpg";
 import two from "@public/SCR-20240222-dqzk.jpeg";
@@ -47,6 +47,9 @@ import clsx from "clsx";
 import { StarsIllustration } from "./components/StarsStatic";
 import ModalVideo01 from "./components/ModalVideo";
 import Link from "next/link";
+import { BgGradientTW } from "./components/BgGradientTW";
+import ModalVideo from "./components/ModalVideo";
+import { BlurIn } from "./components/BlurIn";
 
 const MainVideo = dynamic(() => import("./components/MainVideo"), {
   ssr: false,
@@ -100,7 +103,7 @@ export default function HomePage() {
       <div className="relative min-h-full">
         <Starfield />
       </div>
-      <h1 className="flex ml-[200px] h-[1.1em] z-50 mt-[20px] gap-4 items-center text-nowrap w-full text-[50px] flex-1 font-medium text-white">
+      <h1 className="flex ml-[10%] h-[1.1em] z-50 mt-[20px] gap-4 items-center text-nowrap text-[50px] flex-1 font-medium text-white">
         Let your next
         <span className="relative h-[1.1em] mt-1 w-[1000px] overflow-hidden">
           <span className="absolute h-full w-full -translate-y-full animate-slide leading-none text-white">
@@ -113,10 +116,9 @@ export default function HomePage() {
             story
           </span>
         </span>
-        {/* <p className="self-end mr-4"> Fascinate</p> */}
       </h1>
-      <section className=" text-white max-w-6xl mr-auto ml-80 relative gap-36 items-center flex">
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center  [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+      <section className=" text-white max-w-6xl mr-auto ml-80 relative gap-36 items-center flex mb-40">
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center"></div>
         <h1 className="text-[160px] font-bold leading-tight mt-1 mb-8 bg-clip-text text-transparent bg-gradient-to-b from-gray-50 from-60% to-slate-800 to-90%">
           Fascinate
         </h1>
@@ -127,44 +129,16 @@ export default function HomePage() {
           </span>
         </button>
       </section>
-
-      {/* <Parallax /> */}
-      <div className="relative w-full mt-40 max-h-screen aspect-video mx-auto grid *:row-span-full *:col-span-full">
-        <TextGeneration />
-        <Image src={videobg} alt="" className="-z-10 -top-20 absolute" />
-        <div className="relative max-w-[1200px] aspect-video mx-auto -z-10">
-          <MainVideo />
-          {/* <video
-              src="https://dtv9sxyhtfhqe3cm.public.blob.vercel-storage.com/documentary.mp4"
-              loop
-              autoPlay
-              muted
-              playsInline
-              className="w-full h-full object-cover mt-32 top-10 rounded-2xl shadow-2xl blur-0"
-            /> */}
-        </div>
-
-        <div
-          id="transparent-gradient"
-          className="absolute w-1/2 h-full inset-4 z-0 bg-gradient-to-r from-neutral-950 from-15% via-neutral-950/50 via-20% rounded-b-3xl blur-lg"
-        ></div>
-        <div
-          id="transparent-gradient"
-          className="absolute w-1/2 h-full right-0 z-0 bg-gradient-to-l from-neutral-950 from-15% via-neutral-950/70 via-20% rounded-b-3xl blur-lg"
-        ></div>
-        <div
-          id="transparent-gradient"
-          className="absolute w-full h-1/5 top-0 z-0 bg-gradient-to-b from-neutral-950 from-15% via-neutral-950/70 via-20% rounded-b-3xl blur-lg"
-        ></div>
+      <ModalVideo />
+      <div className="mt-60">
+        <Marquee />
       </div>
-
       <ServicesTabsContainer />
-
       <div
         className={clsx(
           "mask-radial-faded pointer-events-none relative h-[60rem] overflow-hidden",
           // "[--color:#a78bfa] before:absolute before:inset-0 before:bg-radial-faded before:opacity-[0.8]",
-          "[--color:#7b5cf5] before:absolute before:inset-0 before:bg-radial-faded before:opacity-[0.4]",
+          "[--color:#8B5CF6] before:absolute before:inset-0 before:bg-radial-faded before:opacity-[0.4]",
           "after:absolute after:top-1/2 after:-left-1/2 after:h-[142.8%] after:w-[200%] after:rounded-[50%] after:border-t after:border-[rgba(120,_119,_198,_0.4)] after:bg-neutral-950",
         )}
         id="_mask"
@@ -177,79 +151,10 @@ export default function HomePage() {
           className="w-full h-1/2"
           particleColor="#FFFFFF"
         />
-        <div className="relative z-50 before:">
-          <Marquee />
-        </div>
       </div>
-      <p
-        className={
-          "font-bold relative text-white text-center text-6xl tracking-wide"
-        }
-      >
-        Case Studies
-      </p>
-
+      <CaseStudiesText />
       <StickyScroll content={content} />
-
-      <div className="p-10 relative">
-        <div className="absolute [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] "></div>
-        {/* <StickyScroll content={content} /> */}
-      </div>
-
       <div className="w-full flex">{/* <LetsTalk /> */}</div>
     </main>
-  );
-}
-
-function LetsTalk() {
-  return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <button
-          className="relative mx-auto my-20 inline-flex h-40 shadow-[0_0_2px_#E2CBFF,inset_0_0_2px_#E2CBFF,0_0_5px_#393BB2,0_0_15px_#393BB2,0_0_30px_#393BB2]
-          w-96 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
-        >
-          <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-          <span className="inline-flex h-full w-full cursor-pointer items-center justify-center text-6xl rounded-full bg-black px-3 py-1 font-medium text-white backdrop-blur-3xl">
-            {`Let's talk`}
-          </span>
-        </button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] bg-black text-white border border-white/[0.2]">
-        <DialogHeader>
-          <DialogTitle>Contact us</DialogTitle>
-          <DialogDescription>
-            Coming soon: ability to edit and choose fields
-          </DialogDescription>
-        </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input
-              id="name"
-              value="Pedro Duarte"
-              className="col-span-3 text-black"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input
-              id="username"
-              value="@peduarte"
-              className="col-span-3 text-black"
-            />
-          </div>
-        </div>
-        <DialogFooter>
-          <button className="shadow-[inset_0_0_0_2px_#616467] px-12 py-4 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200">
-            Send
-          </button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
   );
 }
