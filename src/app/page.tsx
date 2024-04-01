@@ -51,10 +51,6 @@ import { BgGradientTW } from "./components/BgGradientTW";
 import ModalVideo from "./components/ModalVideo";
 import { BlurIn } from "./components/BlurIn";
 
-const MainVideo = dynamic(() => import("./components/MainVideo"), {
-  ssr: false,
-});
-
 const content = [
   {
     title: "Collaborative Editing",
