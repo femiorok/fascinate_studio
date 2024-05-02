@@ -2,8 +2,8 @@
 
 import React, { useRef, useEffect } from "react";
 
-const COUNT = 800;
-const SPEED = 0.05;
+const COUNT = 200;
+const SPEED = 0.18;
 
 class Star {
   x: number;
@@ -45,8 +45,12 @@ class Star {
   draw(ctx: CanvasRenderingContext2D) {
     if (this.bright) {
       // For bright stars, use a solid white stroke with full opacity
+
+      ctx.shadowBlur = 10; // Adjust the value to get the desired glow size
+      ctx.shadowColor = "rgba(255, 255, 255, 0.4)"; // Light white glow
+
       ctx.strokeStyle = "rgba(255, 255, 255, 1)"; // Full opacity for maximum brightness
-      ctx.lineWidth = this.z * 1.5; // Increase the line width for enhanced visibility
+      ctx.lineWidth = this.z * 1.1; // Increase the line width for enhanced visibility
     } else {
       // For other stars, use the gradient for a darker tip
       const gradient = ctx.createLinearGradient(
@@ -94,12 +98,13 @@ const Starfield = () => {
       canvas.height = height * dpr;
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
+      // canvas.style.backgroundColor = "#00FFFFFF";
       ctx.scale(dpr, dpr);
 
       // Initialization logic for stars
 
       ctx.translate(width / 2, height / 2);
-      ctx.fillStyle = "rgb(09, 09, 09)";
+      // ctx.fillStyle = "#06010a";
       ctx.strokeStyle = "white";
 
       const stars = Array.from(
@@ -115,8 +120,8 @@ const Starfield = () => {
         if (!canvas || !container || !ctx) return;
         const { clientWidth: width, clientHeight: height } = container;
 
+        ctx.fillStyle = "#070114"; // Set fill style to fully transparent
         ctx.fillRect(-width / 2, -height / 2, width, height);
-
         for (const star of stars) {
           star.update(width, height, SPEED);
           star.draw(ctx);
@@ -139,9 +144,12 @@ const Starfield = () => {
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 -z-10 h-[300px]"
+      className="grow relative text-center"
       id="starfield"
     >
+      <h1 className="text-[160px] absolute w-full z-10 font-bold leading-tight mt-1 mb-8 bg-clip-text text-transparent bg-gradient-to-b from-gray-50 from-60% to-slate-800 to-90%">
+        Fascinate Studios
+      </h1>
       <canvas ref={canvasRef} className=""></canvas>
     </div>
   );

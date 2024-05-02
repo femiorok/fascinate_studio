@@ -25,11 +25,12 @@ const config = {
     },
     extend: {
       colors: {
+        main: "#070114",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        background: "#070114",
+        foreground: "#070114",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -93,11 +94,34 @@ const config = {
           "0 0px 80px rgba(14, 165, 233, 0.45)", // Blend closer to sky-500 for extended glow
         ],
       },
-
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
+        },
+        orbit: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        meteor: {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+          "70%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
+        },
+        "glow-line-horizontal": {
+          "0%": { opacity: "0", transform: "translateX(0)" },
+          "5%": { opacity: "1", transform: "translateX(0)" },
+          "90%": { opacity: "1" },
+          "100%": { opacity: "0", transform: "translateX(min(60vw, 45rem))" },
+        },
+        "glow-line-vertical": {
+          "0%": { opacity: "0", transform: "translateY(0)" },
+          "5%": { opacity: "1", transform: "translateY(0)" },
+          "90%": { opacity: "1" },
+          "100%": { opacity: "0", transform: "translateY(min(21vw, 45rem))" },
         },
         "fade-in": {
           "0%": {
@@ -181,7 +205,14 @@ const config = {
         },
       },
       animation: {
+        meteor: "meteor 5s linear infinite",
+        orbit: "orbit 10s linear infinite",
+
         "accordion-down": "accordion-down 0.2s ease-out",
+        "glow-line-horizontal":
+          "glow-line-horizontal var(--animation-duration) ease-in forwards",
+        "glow-line-vertical":
+          "glow-line-vertical var(--animation-duration) ease-in forwards",
         "fade-in": "fade-in 0.6s ease-in",
         "accordion-up": "accordion-up 0.2s ease-out",
         spotlight: "spotlight 2s ease .75s 1 forwards",

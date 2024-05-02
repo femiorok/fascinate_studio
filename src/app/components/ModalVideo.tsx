@@ -8,6 +8,8 @@ import { TextGeneration } from "./Typewriter";
 import videobg from "@public/div.hero-background.png";
 import astro from "@public/astro2.jpeg";
 import ReactPlayer from "react-player";
+import { MovingBorder } from "./MovingBorder";
+import { HeroImage } from "./HeroImageGlow";
 
 export default function ModalVideo() {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -17,32 +19,17 @@ export default function ModalVideo() {
     <div className="shrink-0 relative">
       {/* Video thumbnail */}
       <div className="flex justify-center items-center">
-        <div className="relative w-[1400px] py-20 aspect-video">
-          <TextGeneration />
-          <div
-            id="mask"
-            className="absolute top-[10%] inset-0 h-full w-full z-40 bg-[radial-gradient(farthest-side,_var(--tw-gradient-stops))] from-transparent from-60% to-neutral-950/90 to-85%"
-          ></div>
-          <Image
-            src={videobg}
-            alt=""
-            className="-z-10 -inset-20 object-cover"
+        <div className="relative w-[1000px] p-px h-[564px] mx-auto ">
+          {/* <div className="absolute -inset-[1px] rounded-3xl opacity-50 bg-purple-200 bg-gradient-to-br from-indigo-300 to-violet-300"></div> */}
+          <div className="absolute -inset-10 -z-50 rounded-3xl bg-purple-800/50 blur-2xl opacity-40"></div>
+          {/* <Image
+            src={astro.src}
+            alt="Features Illustration"
             quality={100}
+            className="object-cover z-10 rounded-3xl"
             fill
-          />
-          <div className="rounded-3xl mt-[20%] relative w-[1000px] p-px overflow-hidden h-[564px] mx-auto">
-            <div className="absolute inset-0 w-[1000px] h-full bg-gradient-to-r to-purple-400 from-purple-400 via-purple-200 "></div>
-            <div className="relative w-full h-full">
-              <Image
-                src={astro.src}
-                alt="Features Illustration"
-                quality={100}
-                className="object-cover z-10"
-                fill
-              />
-              <div className="absolute inset-0 h-[564px] z-50 w-full bg-gradient-to-b from-transparent from-40% to-neutral-950/70" />
-            </div>
-          </div>
+          /> */}
+          <HeroImage />
         </div>
 
         <button
@@ -118,6 +105,10 @@ export default function ModalVideo() {
       </Transition>
     </div>
   );
+}
+
+{
+  /* <div className="absolute inset-0 h-[564px] z-50 w-full bg-gradient-to-b from-transparent from-40% to-neutral-950/70" /> */
 }
 
 // function LandingVideo() {
